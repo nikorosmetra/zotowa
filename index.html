@@ -24,7 +24,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:"Onest",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    font-family:'Onest',Arial,sans-serif;
     color:var(--ink);
     background:#fff;
     -webkit-font-smoothing:antialiased;
@@ -61,7 +61,7 @@
 
   .brand{display:flex;align-items:center;gap:14px;justify-content:center;white-space:nowrap}
   .brand .mark{width:44px;height:50px;flex:0 0 auto}
-  .brand img.logo-img{width:auto;height:50px;object-fit:contain}
+  .brand img.logo-img{width:auto;height:70px;object-fit:contain}
   .brand .txt{display:flex;flex-direction:column;line-height:1.05}
   .brand .name{
     font-weight:800;
@@ -84,7 +84,7 @@
   .socials svg{width:18px;height:18px;fill:#fff}
   .phone{font-weight:800;font-size:20px;color:#17204a;letter-spacing:.3px}
   .burger{
-    width:52px;height:52px;border:none;border-radius:12px;
+    width:52px;height:36px;border:none;border-radius:10px;
     background:var(--blue-700);color:#fff;cursor:pointer;
     display:grid;place-items:center;flex:0 0 auto;transition:.15s background;
   }
@@ -202,6 +202,7 @@
     .brand .name{font-size:20px}
     .brand .sub{letter-spacing:2px;font-size:11px}
     .brand .mark{width:36px;height:42px}
+    .brand img.logo-img{height:50px}
     h1{font-size:clamp(30px,8vw,40px)}
     .kicker{font-size:15px;margin-bottom:18px}
     .lead{font-size:16px;margin-top:20px}
