@@ -80,7 +80,30 @@
 /* Closing CTA reuses .cta-banner from the main stylesheet */
 .practice-cta{margin-top:8px}
 
+/* Case detail: Дано / Задача */
+.case-facts{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case-fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px}
+.case-fact h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:12px}
+.case-fact p{color:var(--muted);font-size:15.5px;line-height:1.6}
+
+/* Case grid tag on preview cards */
+.case-card .tag{
+  display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--gold);margin-bottom:10px;
+}
+
+/* Legal documents (privacy / consent) */
+.legal-doc{max-width:820px}
+.legal-doc .meta{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin-bottom:36px;font-size:14.5px;color:var(--muted);line-height:1.8;
+}
+.legal-doc h2{font-size:20px;font-weight:800;color:var(--ink);margin:40px 0 14px}
+.legal-doc h2:first-of-type{margin-top:0}
+.legal-doc p{color:var(--muted);font-size:15.5px;line-height:1.75;margin-bottom:14px}
+
 @media (max-width:960px){
   .step-grid,.step-grid.cols-3{grid-template-columns:1fr}
   .check-grid,.check-grid.cols-3{grid-template-columns:1fr;gap:28px}
+  .case-facts{grid-template-columns:1fr}
 }

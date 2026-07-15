@@ -220,6 +220,7 @@
 
   /* Cases */
   .case-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .case-grid.cols-3{grid-template-columns:repeat(3,1fr)}
   .case-card{
     border:1px solid var(--line);border-radius:18px;padding:30px 28px;
     transition:.15s transform,.15s box-shadow;background:#fff;
@@ -389,6 +390,7 @@
     .about-grid{grid-template-columns:1fr;gap:40px}
     .practice-grid{grid-template-columns:repeat(2,1fr)}
     .case-grid{grid-template-columns:1fr}
+    .case-grid.cols-3{grid-template-columns:1fr 1fr}
     .review-grid{grid-template-columns:1fr}
     .split,.split.rev{grid-template-columns:1fr;gap:32px}
     .split.rev .split-media{order:0}
@@ -420,6 +422,7 @@
     section.pad{padding:48px 0}
     .section-title{font-size:26px}
     .practice-grid{grid-template-columns:1fr}
+    .case-grid.cols-3{grid-template-columns:1fr}
     .aphorism{padding:20px 20px}
     .contact-panel{border-radius:22px}
     .cta-banner{border-radius:22px}
