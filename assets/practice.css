@@ -1,0 +1,86 @@
+/* ---------- Practice / inner page layout ---------- */
+.practice-hero .wrap{padding:56px 0 64px}
+.crumbs{
+  font-size:13.5px;color:#aab8e8;margin-bottom:22px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+}
+.crumbs a{color:#aab8e8}
+.crumbs a:hover{color:#fff}
+.crumbs span{color:#5f6ea3}
+.practice-hero h1{
+  font-size:clamp(32px,4vw,48px);font-weight:800;line-height:1.15;
+  letter-spacing:-.4px;color:#eef3ff;max-width:820px;
+}
+.practice-hero .sub{margin-top:18px;font-size:18px;color:#cdd9ff;max-width:640px;line-height:1.55}
+.practice-hero .aphorism{margin-top:36px}
+
+/* Numbered step / info cards — reused for stages, lists, benefits, FAQs' neighbours */
+.step-grid{margin-top:44px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.step-grid.cols-1{grid-template-columns:1fr}
+.step-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.step-card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:26px 24px;display:flex;gap:16px;align-items:flex-start;
+}
+.step-card .num{
+  flex:0 0 auto;width:40px;height:40px;border-radius:11px;
+  background:var(--blue-700);color:#fff;font-weight:800;font-size:14px;
+  display:grid;place-items:center;
+}
+.step-card .body strong{display:block;font-size:16px;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.step-card .body p{color:var(--muted);font-size:14.5px;line-height:1.6}
+.step-col-head{margin-top:56px}
+.step-col-head:first-of-type{margin-top:0}
+.step-col-head h3{font-size:20px;font-weight:800;color:var(--ink)}
+.step-col-head p{margin-top:8px;color:var(--muted);font-size:15px;line-height:1.6;max-width:640px}
+
+/* Price / cost list */
+.price-list{
+  margin-top:44px;display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;
+}
+.price-row{display:flex;justify-content:space-between;gap:20px;padding:20px 26px;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:none}
+.price-row .label{color:var(--ink);font-size:15.5px;line-height:1.5}
+.price-row .val{color:var(--blue-700);font-weight:800;font-size:15.5px;white-space:nowrap;flex:0 0 auto}
+
+/* FAQ accordion */
+.faq-list{margin-top:44px;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:14px;padding:4px 22px;background:#fff}
+.faq-item summary{
+  cursor:pointer;padding:18px 0;font-weight:700;font-size:16px;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--gold);flex:0 0 auto;transition:.2s transform;line-height:1}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 0 20px;color:var(--muted);font-size:15px;line-height:1.65}
+
+/* Simple checklist (two columns of short bullet points) */
+.check-grid{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.check-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.check-list{display:flex;flex-direction:column;gap:14px}
+.check-list li{list-style:none;padding-left:28px;position:relative;color:var(--muted);font-size:15px;line-height:1.55}
+.check-list li::before{
+  content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:5px;
+  background:rgba(23,63,176,.1);
+}
+.check-list li::after{
+  content:"";position:absolute;left:4px;top:8px;width:8px;height:4px;
+  border-left:2px solid var(--blue-700);border-bottom:2px solid var(--blue-700);
+  transform:rotate(-45deg);
+}
+.check-list.cross li::before{background:rgba(201,162,76,.12)}
+.check-list.cross li::after{
+  left:5px;top:6px;width:6px;height:6px;border:none;
+  background:none;border-left:2px solid var(--gold);border-right:2px solid var(--gold);
+  transform:rotate(45deg);
+}
+
+/* Closing CTA reuses .cta-banner from the main stylesheet */
+.practice-cta{margin-top:8px}
+
+@media (max-width:960px){
+  .step-grid,.step-grid.cols-3{grid-template-columns:1fr}
+  .check-grid,.check-grid.cols-3{grid-template-columns:1fr;gap:28px}
+}
