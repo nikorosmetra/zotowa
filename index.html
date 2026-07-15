@@ -20,6 +20,8 @@
     --gold-2:#e6c877;
     --line:#e7eaf1;
     --radius:26px;
+    --tint:#f4f6fc;
+    --muted:#5c6684;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -168,6 +170,164 @@
   }
   .photo-ph small{font-size:13px;max-width:230px;line-height:1.5}
 
+  /* ---------- Shared section building blocks ---------- */
+  section.pad{padding:96px 0}
+  .bg-light{background:#fff}
+  .bg-tint{background:var(--tint)}
+  .bg-navy{background:var(--navy);color:#fff}
+  .bg-navy .muted{color:#aab3d6}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold-2);border-radius:2px}
+  .section-title{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.3px;max-width:760px}
+  .muted{color:var(--muted);line-height:1.7;font-size:16.5px}
+  .lede{margin-top:20px;max-width:680px}
+  .lede p+p{margin-top:16px}
+
+  .aphorism{
+    margin-top:44px;padding:26px 30px;border-left:3px solid var(--gold);
+    background:rgba(201,162,76,.06);border-radius:0 14px 14px 0;
+    max-width:640px;
+  }
+  .bg-navy .aphorism{background:rgba(255,255,255,.05)}
+  .aphorism .lat{font-style:italic;font-weight:600;font-size:17px;color:var(--gold);margin-bottom:6px}
+  .aphorism .tr{font-size:15px;color:var(--muted)}
+  .bg-navy .aphorism .tr{color:#aab3d6}
+
+  /* Intro */
+  .intro-grid{display:grid;grid-template-columns:1fr;max-width:920px}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .adv-list{display:flex;flex-direction:column;gap:22px}
+  .adv-item{display:flex;gap:16px}
+  .adv-item .num{
+    flex:0 0 auto;width:38px;height:38px;border-radius:10px;
+    background:var(--blue-700);color:#fff;font-weight:800;font-size:14px;
+    display:grid;place-items:center;
+  }
+  .adv-item strong{display:block;font-size:16px;margin-bottom:4px;color:var(--ink)}
+  .adv-item span{color:var(--muted);font-size:15px;line-height:1.55}
+  .about-close{margin-top:32px;font-weight:600;font-size:17px;color:var(--ink)}
+
+  /* Practices grid */
+  .practice-grid{
+    margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .practice-card{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;padding:28px 24px;transition:.15s transform,.15s background;
+  }
+  .practice-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.08)}
+  .practice-card .n{font-size:15px;font-weight:800;color:var(--gold-2)}
+  .practice-card h3{font-size:18px;font-weight:700;margin:14px 0 18px;line-height:1.35;color:#fff}
+  .practice-card a{font-size:14px;font-weight:600;color:#9fb2ff}
+  .practice-card a:hover{color:#fff}
+  .section-foot-note{margin-top:36px;max-width:640px;color:#c3cef0;font-size:15.5px}
+
+  /* Cases */
+  .case-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .case-card{
+    border:1px solid var(--line);border-radius:18px;padding:30px 28px;
+    transition:.15s transform,.15s box-shadow;background:#fff;
+  }
+  .case-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,30,70,.08)}
+  .case-card p{font-size:17px;font-weight:600;line-height:1.45;color:var(--ink)}
+  .case-card a{display:inline-block;margin-top:16px;font-size:14px;font-weight:700;color:var(--blue-700)}
+  .case-more{margin-top:40px}
+
+  /* Reviews */
+  .review-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .review-card{
+    background:#fff;border-radius:18px;padding:30px 26px;border:1px solid var(--line);
+  }
+  .review-card .who{font-weight:800;font-size:17px;color:var(--ink)}
+  .review-card .role{font-size:13.5px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .review-card .tags{margin-top:16px;font-size:14.5px;color:var(--muted);line-height:1.6}
+
+  /* CTA banner */
+  .cta-banner{
+    border-radius:32px;padding:64px 56px;
+    background:linear-gradient(120deg,var(--blue-900),var(--blue-700));
+    color:#fff;display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  }
+  .cta-banner h3{font-size:clamp(24px,2.6vw,32px);font-weight:800;max-width:640px;line-height:1.3}
+  .cta-banner p{margin-top:14px;color:#d4ddf6;max-width:560px;font-size:16px;line-height:1.6}
+
+  /* Split (Legal tech / court financing) */
+  .split{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .split.rev{grid-template-columns:1.15fr .85fr}
+  .split.rev .split-media{order:2}
+  .split-media{
+    aspect-ratio:1/1;border-radius:var(--radius);
+    background:linear-gradient(160deg,var(--blue-800),var(--blue-500));
+    display:grid;place-items:center;position:relative;overflow:hidden;
+  }
+  .split-media svg{width:96px;height:96px;stroke:rgba(255,255,255,.85)}
+  .split-list{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+  .split-list li{list-style:none;padding-left:26px;position:relative;color:var(--muted);font-size:15.5px;line-height:1.6}
+  .split-list li::before{
+    content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--gold);
+  }
+
+  /* News */
+  .news-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .news-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff}
+  .news-card .date{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+  .news-card h3{margin-top:12px;font-size:17px;font-weight:700;line-height:1.4;color:var(--ink)}
+  .news-card p{margin-top:10px;font-size:14.5px;color:var(--muted);line-height:1.6}
+  .news-card a{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--blue-700)}
+
+  /* Contacts */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:44px}
+  .contact-info{display:flex;flex-direction:column;gap:22px}
+  .contact-info .row{display:flex;gap:14px;align-items:flex-start}
+  .contact-info .ic{
+    flex:0 0 auto;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);
+    display:grid;place-items:center;
+  }
+  .contact-info .ic svg{width:18px;height:18px;stroke:var(--gold-2);fill:none;stroke-width:1.8}
+  .contact-info .row div{font-size:15.5px;line-height:1.55;color:#dbe1f7}
+  .contact-info .row a{color:#fff;font-weight:700}
+  .consult-form{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;padding:34px;display:flex;flex-direction:column;gap:14px;
+  }
+  .consult-form input,.consult-form select{
+    width:100%;padding:15px 16px;border-radius:11px;border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:15px;
+  }
+  .consult-form input::placeholder{color:#9aa4c8}
+  .consult-form select{color:#dbe1f7}
+  .consult-form select option{color:#151b33}
+  .consult-form label.chk-row{
+    display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#aab3d6;line-height:1.5;
+  }
+  .consult-form label.chk-row a{color:#c9d2f5;text-decoration:underline}
+  .consult-form input[type=checkbox]{width:16px;height:16px;flex:0 0 auto;margin-top:2px}
+  .consult-form .btn{margin-top:6px}
+
+  /* Footer */
+  footer.site-footer{background:#0d1330;color:#c3cef0;padding:64px 0 28px}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px}
+  .footer-grid h4{color:#fff;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+  .footer-grid .brand-line{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .footer-grid .brand-line img{height:34px}
+  .footer-grid .brand-line span{font-weight:800;font-size:18px;color:#fff}
+  .footer-grid p{font-size:14.5px;line-height:1.7;color:#9aa4c8}
+  .footer-nav a{display:block;padding:6px 0;font-size:14.5px;color:#c3cef0}
+  .footer-nav a:hover{color:#fff}
+  .footer-req{font-size:13.5px;line-height:1.8;color:#8a94b8}
+  .footer-bottom{
+    margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:#8a94b8;
+  }
+  .footer-bottom a{color:#8a94b8;text-decoration:underline}
+  .footer-bottom a:hover{color:#fff}
+
   /* ---------- Mobile nav panel ---------- */
   .mobile-nav{
     display:none;background:#fff;border-bottom:1px solid var(--line);
@@ -194,6 +354,19 @@
     .hero-photo{order:-1}
     .photo-card{aspect-ratio:16/12;max-height:420px}
     .lead,.kicker{max-width:none}
+
+    section.pad{padding:64px 0}
+    .about-grid{grid-template-columns:1fr;gap:40px}
+    .practice-grid{grid-template-columns:repeat(2,1fr)}
+    .case-grid{grid-template-columns:1fr}
+    .review-grid{grid-template-columns:1fr}
+    .split,.split.rev{grid-template-columns:1fr;gap:32px}
+    .split.rev .split-media{order:0}
+    .split-media{aspect-ratio:16/9}
+    .news-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr;gap:32px}
+    .cta-banner{padding:44px 32px}
+    .footer-grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:640px){
     .wrap{padding:0 18px}
@@ -211,75 +384,21 @@
     .notes{flex-direction:column;gap:16px;margin-top:22px}
     .note{max-width:none}
     .photo-card{aspect-ratio:1/1;max-height:none}
+
+    section.pad{padding:48px 0}
+    .section-title{font-size:26px}
+    .practice-grid{grid-template-columns:1fr}
+    .aphorism{padding:20px 20px}
+    .cta-banner{border-radius:22px}
+    .cta-banner{flex-direction:column;align-items:flex-start}
+    .footer-grid{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column}
   }
 </style>
 </head>
 <body>
 
-  <header>
-    <div class="wrap">
-      <div class="head">
-        <nav class="main">
-          <a href="#">О нас</a>
-          <a href="#">Практики</a>
-          <a href="#">Кейсы</a>
-          <a href="#">Отзывы</a>
-          <a href="#">Новости</a>
-        </nav>
-
-        <a class="brand" href="/">
-          <!-- Real logo (transparent PNG). Falls back to the gold-shield SVG if the file is missing. -->
-          <img class="mark logo-img" src="assets/logo.png" alt="Зотова и партнёры"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-          <svg class="mark" style="display:none" viewBox="0 0 44 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#e6c877"/>
-                <stop offset="1" stop-color="#b8862f"/>
-              </linearGradient>
-            </defs>
-            <path d="M22 1.5 42.5 9v18c0 12.5-9 18.8-20.5 22.5C10 45.8 1.5 39.5 1.5 27V9L22 1.5Z"
-                  fill="none" stroke="url(#g)" stroke-width="1.6"/>
-            <path d="M13 15h18l-11 12h11" fill="none" stroke="url(#g)" stroke-width="2.2"
-                  stroke-linejoin="round" stroke-linecap="round"/>
-            <path d="M22 6 36 12M22 6 8 12" stroke="url(#g)" stroke-width="1" opacity=".55"/>
-          </svg>
-          <span class="txt">
-            <span class="name">Зотова&nbsp;и&nbsp;партнёры</span>
-            <span class="sub">юридическая фирма</span>
-          </span>
-        </a>
-
-        <div class="contacts">
-          <div class="socials">
-            <a href="#" aria-label="Telegram">
-              <svg viewBox="0 0 24 24"><path d="M9.8 15.6 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 3.9 2.9c.7.4 1.2.2 1.4-.7l2.6-12.2c.3-1.1-.4-1.6-1.1-1.3L3.3 10.6c-1.1.4-1.1 1-.2 1.3l3.9 1.2 9-5.7c.4-.3.8-.1.5.2l-6.7 8Z"/></svg>
-            </a>
-            <a href="#" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.4-.4-.4-.7-.9-1-1.4-.1-.2 0-.4.1-.5l.4-.5c.1-.1.1-.2.2-.4v-.4c0-.1-.5-1.3-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.8.8-.9 1.9-.5 3 .5 1.4 1.4 2.6 2.6 3.6 1 .9 2.1 1.5 3.4 1.8.5.1 1 .2 1.5.1.6-.1 1.4-.6 1.6-1.2.1-.3.1-.6.1-.9-.1-.1-.2-.2-.4-.3Z"/></svg>
-            </a>
-          </div>
-          <a class="phone" href="tel:+79138291555">+7&nbsp;(913)&nbsp;829-15-55</a>
-          <button class="burger" id="burger" aria-label="Меню">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <nav class="mobile-nav">
-      <div class="wrap">
-        <a href="#">О нас</a>
-        <a href="#">Практики</a>
-        <a href="#">Кейсы</a>
-        <a href="#">Отзывы</a>
-        <a href="#">Новости</a>
-        <div class="m-contacts">
-          <a class="phone" style="display:block;color:#17204a" href="tel:+79138291555">+7 (913) 829-15-55</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <header id="site-header"></header>
 
   <section class="hero">
     <div class="wrap">
@@ -290,8 +409,8 @@
           <p class="lead">Арбитражные процессы, банкротство, налоговые и корпоративные споры, взыскание долгов и правовая защита. Берёмся за дела, где нужен результат — а не формальное сопровождение.</p>
 
           <div class="cta">
-            <button class="btn btn-light">Получить консультацию</button>
-            <button class="btn btn-dark">Перейти в телеграм канал</button>
+            <a class="btn btn-light" href="#contacts">Получить консультацию</a>
+            <a class="btn btn-dark" href="#" target="_blank" rel="noopener">Перейти в телеграм канал</a>
           </div>
 
           <div class="notes">
@@ -320,9 +439,317 @@
     </div>
   </section>
 
+  <!-- ---------- Вступление ---------- -->
+  <section class="pad bg-light">
+    <div class="wrap">
+      <div class="intro-grid">
+        <p class="section-title">«Зотова и партнёры» — юридическая фирма, которая берёт на себя сложные споры и доводит их до результата</p>
+        <div class="lede muted">
+          <p>Мы специализируемся на судебных процессах, арбитражных спорах, банкротстве, корпоративных конфликтах, налоговых проверках и взыскании задолженностей по всей России. Наша задача — не просто сопровождать дело, а обеспечивать клиенту реальную юридическую защиту и достижение нужного результата.</p>
+          <p>В «Зотова и партнёры» каждый процесс рассматривается как стратегический проект. Мы анализируем документы, прогнозируем риски, просчитываем поведение оппонентов и выстраиваем тактику так, чтобы ваше дело было выиграно — и исполнено.</p>
+        </div>
+        <div class="aphorism">
+          <div class="lat">Ars vincendi est ars praevidendi</div>
+          <div class="tr">Искусство побеждать — это искусство предвидеть</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- О нас ---------- -->
+  <section class="pad bg-tint" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">О нас</span>
+          <h2 class="section-title">Мы не просто юристы — мы ваш партнёр в правовых вопросах, действующий в интересах клиента</h2>
+          <div class="lede muted">
+            <p>Мы объединяем классическую судебную экспертизу с современными Legal Tech-решениями: автоматизированной подготовкой документов, аналитикой судебной практики, цифровым контролем процессов. Это делает защиту не только качественной, но и быстрой.</p>
+            <p>К нам обращаются предприниматели, собственники бизнеса, кредиторы и арбитражные управляющие из Балашихи и всей Московской области, когда нужно не обсуждать проблему, а решать её. Мы уверенно ведём переговоры, знаем, когда выгоднее заключить соглашение, и когда нужно идти в жёсткую судебную стратегию.</p>
+          </div>
+          <p class="about-close">«Зотова и партнёры» — юридическая фирма, с которой сложные споры становятся решаемыми, а невозможное — достижимым.</p>
+        </div>
+        <div class="adv-list">
+          <div class="adv-item">
+            <span class="num">01</span>
+            <div><strong>Честная и точная оценка</strong><span>Без иллюзий, без пустых обещаний — только реалистичные прогнозы.</span></div>
+          </div>
+          <div class="adv-item">
+            <span class="num">02</span>
+            <div><strong>Глубокий анализ вместо шаблонов</strong><span>Над каждым делом работает опытный судебный юрист, который понимает структуру спора и несёт личную ответственность за результат.</span></div>
+          </div>
+          <div class="adv-item">
+            <span class="num">03</span>
+            <div><strong>Индивидуальная стратегия</strong><span>Мы погружаемся в детали, ищем неочевидные аргументы и правовые инструменты, которые меняют ход дела.</span></div>
+          </div>
+          <div class="adv-item">
+            <span class="num">04</span>
+            <div><strong>Контроль на всех этапах</strong><span>От досудебного урегулирования до исполнительного производства.</span></div>
+          </div>
+          <div class="adv-item">
+            <span class="num">05</span>
+            <div><strong>Премиальный сервис и высокая вовлечённость</strong><span>Мы не передаём клиента от юриста к юристу — вы работаете с профессионалом, который в теме вашего дела от начала до финала.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Ключевые направления ---------- -->
+  <section class="pad bg-navy" id="practices">
+    <div class="wrap">
+      <span class="eyebrow">Ключевые направления</span>
+      <h2 class="section-title">Мы предоставляем юридические услуги в самых сложных областях права</h2>
+      <p class="section-foot-note">Предлагаем гибкие форматы взаимодействия — от точечной консультации до комплексного юридического сопровождения.</p>
+
+      <div class="practice-grid">
+        <div class="practice-card"><span class="n">01</span><h3>Банкротство физических лиц</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">02</span><h3>Банкротство юридических лиц</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">03</span><h3>Корпоративные споры</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">04</span><h3>Судебное представительство</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">05</span><h3>Семейное право</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">06</span><h3>Налоговые споры</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">07</span><h3>Уголовно-правовая защита бизнеса</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">08</span><h3>Исполнительное производство</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">09</span><h3>IT и цифровое право</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">10</span><h3>Административная защита</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">11</span><h3>Трудовое право</h3><a href="#">[ подробнее ]</a></div>
+        <div class="practice-card"><span class="n">12</span><h3>Недвижимость</h3><a href="#">[ подробнее ]</a></div>
+      </div>
+
+      <div class="aphorism">
+        <div class="lat">Facta sunt potentiora verbis</div>
+        <div class="tr">Факты сильнее слов. Реальная практика и результаты, подтверждённые делами.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Кейсы ---------- -->
+  <section class="pad bg-light" id="cases">
+    <div class="wrap">
+      <span class="eyebrow">Кейсы</span>
+      <h2 class="section-title">Практика, которая доказывает результат</h2>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <p>Поручитель на 5+ млн освобождён: точка в споре с банком</p>
+          <a href="#">Подробнее →</a>
+        </div>
+        <div class="case-card">
+          <p>Номинальный директор против субсидиарки: когда банкротство защищает</p>
+          <a href="#">Подробнее →</a>
+        </div>
+        <div class="case-card">
+          <p>Фиктивные вагоны рыбы и реальное погашение долга</p>
+          <a href="#">Подробнее →</a>
+        </div>
+        <div class="case-card">
+          <p>Вывел активы — заплатил сам: как руководитель пополнил конкурсную массу</p>
+          <a href="#">Подробнее →</a>
+        </div>
+      </div>
+
+      <div class="case-more"><a class="btn btn-dark" href="#">Смотреть все кейсы</a></div>
+    </div>
+  </section>
+
+  <!-- ---------- Отзывы ---------- -->
+  <section class="pad bg-tint" id="reviews">
+    <div class="wrap">
+      <span class="eyebrow">Отзывы</span>
+      <h2 class="section-title">Наши клиенты возвращают деньги, сохраняют активы и выигрывают судебные споры</h2>
+      <p class="section-foot-note" style="color:var(--muted)">Мы не создаём «красивые истории» — мы решаем реальные юридические задачи.</p>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="who">Олег В.</div>
+          <div class="role">Бывший поручитель</div>
+          <div class="tags">Защита от взыскания · сопровождение банкротства · снятие ответственности поручителя.</div>
+        </div>
+        <div class="review-card">
+          <div class="who">Сергей В.</div>
+          <div class="role">Взыскатель по решению суда</div>
+          <div class="tags">Розыск имущества · арест счетов · исполнение решения суда.</div>
+        </div>
+        <div class="review-card">
+          <div class="who">Александр К.</div>
+          <div class="role">Строительная компания</div>
+          <div class="tags">Сложное взыскание · смена пристава · арест техники должника.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA ---------- -->
+  <section class="pad bg-light">
+    <div class="wrap">
+      <div class="cta-banner">
+        <div>
+          <h3>Завтра будет позже, чем сегодня. Убедитесь, что вы используете все шансы в свою пользу</h3>
+          <p>Не ждите, когда последствия станут необратимыми. Бесплатная консультация — это шанс оценить свои возможности!</p>
+        </div>
+        <a class="btn btn-light" href="#contacts">Обратиться за советом сейчас</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Legal Tech ---------- -->
+  <section class="pad bg-light" id="legaltech">
+    <div class="wrap">
+      <div class="split">
+        <div class="split-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <span class="eyebrow">Legal Tech</span>
+          <h2 class="section-title">Legal tech и автоматизация процессов</h2>
+          <div class="lede muted">
+            <p>Команда «Зотова и партнёры» создаёт юридическую систему нового поколения, где технологии работают вместе с экспертностью, а клиент получает результат быстрее и точнее, чем раньше.</p>
+          </div>
+          <ul class="split-list">
+            <li>Автоматизированная подготовка документов</li>
+            <li>Судебная аналитика и прогнозирование</li>
+            <li>Юридические боты и электронный документооборот</li>
+            <li>Мониторинг контрагентов</li>
+            <li>Искусственный интеллект в стратегии и анализе</li>
+          </ul>
+          <div class="aphorism">
+            <div class="lat">Novarum rerum cupidus</div>
+            <div class="tr">Страстно жаждущий нового</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Судебное финансирование ---------- -->
+  <section class="pad bg-tint" id="financing">
+    <div class="wrap">
+      <div class="split rev">
+        <div>
+          <span class="eyebrow">Судебное финансирование</span>
+          <h2 class="section-title">Судебное финансирование как инструмент партнёрства</h2>
+          <div class="lede muted">
+            <p>Иногда сильная позиция клиента сталкивается с дефицитом его ресурсов: пошлины, экспертизы, юристы, обеспечение иска — всё это превращается в барьер.</p>
+            <p>Команда юристов «Зотова и партнёры» предлагает модель судебного финансирования, при которой все судебные издержки мы берём на себя, а вознаграждение получаем только при реальном взыскании. Мы анализируем перспективы спора, оцениваем активы ответчика и реальность исполнения судебного решения — и заключаем с клиентом соглашение, фиксирующее распределение рисков и результата.</p>
+          </div>
+          <p class="about-close">Судебное финансирование — это партнёрство, в котором мы рискуем вместе с клиентом, потому что верим в его дело.</p>
+          <div class="aphorism">
+            <div class="lat">Finis sanctificat media</div>
+            <div class="tr">Цель оправдывает средства</div>
+          </div>
+        </div>
+        <div class="split-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Новости ---------- -->
+  <section class="pad bg-light" id="news">
+    <div class="wrap">
+      <span class="eyebrow">Новости</span>
+      <h2 class="section-title">Делимся новостями о праве и юридическим опытом</h2>
+
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="date">Скоро</div>
+          <h3>Материалы раздела в разработке</h3>
+          <p>Здесь появятся актуальные новости о праве и практике фирмы.</p>
+        </div>
+        <div class="news-card">
+          <div class="date">Скоро</div>
+          <h3>Материалы раздела в разработке</h3>
+          <p>Здесь появятся актуальные новости о праве и практике фирмы.</p>
+        </div>
+        <div class="news-card">
+          <div class="date">Скоро</div>
+          <h3>Материалы раздела в разработке</h3>
+          <p>Здесь появятся актуальные новости о праве и практике фирмы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Контакты ---------- -->
+  <section class="pad bg-navy" id="contacts">
+    <div class="wrap">
+      <span class="eyebrow">Контакты</span>
+      <h2 class="section-title">Как с нами связаться?</h2>
+      <p class="section-foot-note">Оставьте свои контакты в форме, и мы напишем вам в ближайшее время.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+            <div>143916, Московская обл., г. Балашиха,<br>мкр. Новое Павлино, ш. Косинское, д. 2, кв. 453</div>
+          </div>
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.7a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7A2 2 0 0 1 22 16.9Z"/></svg></span>
+            <div><a href="tel:+79138291555">+7 (913) 829-15-55</a></div>
+          </div>
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4Z"/><path d="m4 6 8 7 8-7"/></svg></span>
+            <div><a href="mailto:zotowa.a.s@yandex.ru">zotowa.a.s@yandex.ru</a></div>
+          </div>
+          <div class="row">
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z"/></svg></span>
+            <div>Telegram: <a href="#" target="_blank" rel="noopener">телеграм канал</a> · WhatsApp: <a href="#" target="_blank" rel="noopener">написать</a></div>
+          </div>
+        </div>
+
+        <form class="consult-form" onsubmit="return false;">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <input type="email" name="email" placeholder="Email">
+          <select name="practice">
+            <option value="">С чем вам помочь?</option>
+            <option>Банкротство юрлиц</option>
+            <option>Банкротство физлиц</option>
+            <option>Корпоративные споры</option>
+            <option>Судебное представительство</option>
+            <option>Семейное право</option>
+            <option>Налоговые споры</option>
+            <option>Уголовно-правовая защита бизнеса</option>
+            <option>Исполнительное производство</option>
+            <option>IT и цифровое право</option>
+            <option>Административная защита</option>
+            <option>Трудовое право</option>
+            <option>Недвижимость</option>
+          </select>
+          <label class="chk-row">
+            <input type="checkbox" required>
+            <span>Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="/privacy">Политикой конфиденциальности</a></span>
+          </label>
+          <button type="submit" class="btn btn-light">Получить консультацию!</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
   <script>
-    document.getElementById('burger').addEventListener('click',function(){
-      document.body.classList.toggle('nav-open');
+    function loadPartial(url, mountId){
+      return fetch(url)
+        .then(function(r){ return r.text(); })
+        .then(function(html){ document.getElementById(mountId).innerHTML = html; })
+        .catch(function(err){ console.error('Не удалось загрузить '+url, err); });
+    }
+
+    Promise.all([
+      loadPartial('partials/header.html', 'site-header'),
+      loadPartial('partials/footer.html', 'site-footer')
+    ]).then(function(){
+      document.getElementById('burger').addEventListener('click',function(){
+        document.body.classList.toggle('nav-open');
+      });
+      document.querySelectorAll('.mobile-nav a').forEach(function(a){
+        a.addEventListener('click',function(){
+          document.body.classList.remove('nav-open');
+        });
+      });
     });
   </script>
 </body>
