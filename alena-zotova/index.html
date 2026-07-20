@@ -65,7 +65,7 @@
       </div>
       <div class="grid">
         <div class="portrait">
-          <img src="/assets/alena/hero.jpg" alt="Алёна Зотова" width="900" height="1125">
+          <img src="/assets/alena/hero.jpg" alt="Алёна Зотова">
         </div>
         <div>
           <h1>Алёна Зотова</h1>
@@ -361,51 +361,59 @@
     <div class="wrap">
       <span class="eyebrow">Документы об образовании и профессиональной подготовке</span>
       <h2 class="section-title">Подтверждённая квалификация</h2>
+      <p class="section-foot-note">Нажмите на документ, чтобы увеличить изображение.</p>
       <div class="doc-list">
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc1.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc1.jpg" alt="Диплом «Педагогика и психология»">
+          <div class="doc-info">
             <div class="name">Диплом «Педагогика и психология», квалификация «Педагог-психолог»</div>
             <div class="org">Томский государственный педагогический университет</div>
           </div>
           <div class="year">2012</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc2.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc2.jpg" alt="Диплом по направлению «Юриспруденция»">
+          <div class="doc-info">
             <div class="name">Диплом по направлению «Юриспруденция», квалификация «Бакалавр»</div>
             <div class="org">Национальный исследовательский Томский государственный университет</div>
           </div>
           <div class="year">2016</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc4.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc4.jpg" alt="Удостоверение «Управление персоналом современной организации»">
+          <div class="doc-info">
             <div class="name">Удостоверение о повышении квалификации «Управление персоналом современной организации»</div>
             <div class="org">Томский государственный университет · 72 часа</div>
           </div>
           <div class="year">2018</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc5.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc5.jpg" alt="Удостоверение «Менеджер по персоналу»">
+          <div class="doc-info">
             <div class="name">Удостоверение о дополнительной профессиональной подготовке «Менеджер по персоналу»</div>
             <div class="org">Томский экономико-юридический институт · 57 часов</div>
           </div>
           <div class="year">2018</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc3.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc3.jpg" alt="Свидетельство о сдаче экзамена арбитражных управляющих">
+          <div class="doc-info">
             <div class="name">Свидетельство о сдаче теоретического экзамена по единой программе подготовки арбитражных управляющих</div>
             <div class="org">Федеральная служба государственной регистрации, кадастра и картографии</div>
           </div>
           <div class="year">2020</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc7.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc7.jpg" alt="Сертификат практического опыта в сфере недвижимости">
+          <div class="doc-info">
             <div class="name">Подтверждение практического опыта юридического сопровождения сделок с недвижимостью</div>
             <div class="org">Практика в риэлторской компании</div>
           </div>
           <div class="year">-</div>
         </div>
-        <div class="doc-item">
-          <div>
+        <div class="doc-item" data-img="/assets/alena/documents/doc6.jpg">
+          <img class="doc-thumb" src="/assets/alena/documents/doc6.jpg" alt="Сертификат «Медиация и переговоры в семейных конфликтах»">
+          <div class="doc-info">
             <div class="name">Сертификат внутреннего обучения «Медиация и переговоры в семейных конфликтах»</div>
             <div class="org">ЮФ «Зотова и партнёры» · 36 академических часов</div>
             <div class="status">Внутренний сертификат не является документом государственного образца</div>
@@ -443,5 +451,24 @@
 
   <footer class="site-footer" id="site-footer"></footer>
   <script src="/assets/include.js"></script>
+
+  <div class="doc-lightbox" id="doc-lightbox"><img id="doc-lightbox-img" src="" alt=""></div>
+  <script>
+  (function(){
+    var lb = document.getElementById('doc-lightbox');
+    var lbImg = document.getElementById('doc-lightbox-img');
+    document.querySelectorAll('.doc-item[data-img]').forEach(function(item){
+      item.addEventListener('click', function(){
+        lbImg.src = item.dataset.img;
+        lbImg.alt = item.querySelector('.name') ? item.querySelector('.name').textContent : '';
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('open'); lbImg.src=''; });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ lb.classList.remove('open'); lbImg.src=''; }
+    });
+  })();
+  </script>
 </body>
 </html>
