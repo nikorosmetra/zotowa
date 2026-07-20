@@ -78,10 +78,12 @@
 
 /* Case meta tags (practice / region) */
 .case-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.case-tags span{
+.case-tags span,.case-tags a{
   padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.12);
   color:#fff;font-size:13.5px;font-weight:600;
 }
+.case-tags a{text-decoration:none;transition:.15s background}
+.case-tags a:hover{background:rgba(255,255,255,.22)}
 
 /* Case filters (allcases page) */
 .case-filters{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
