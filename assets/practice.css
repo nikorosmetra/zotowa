@@ -140,6 +140,15 @@
 }
 .related-links a:hover{background:var(--tint);border-color:var(--blue-700)}
 
+/* Full client review quotes (allreviews page) */
+.review-quote-list{margin-top:44px;display:flex;flex-direction:column;gap:28px}
+.review-quote-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 30px}
+.review-quote-card h3{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:14px}
+.review-quote-card .who{font-weight:800;font-size:16px;color:var(--ink)}
+.review-quote-card .role{font-size:13px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:4px 0 18px}
+.review-quote-card p{color:var(--muted);font-size:15.5px;line-height:1.7;margin-bottom:12px}
+.review-quote-card .tags{margin-top:10px;font-size:13.5px;color:var(--blue-700);font-weight:600}
+
 /* Per-page legal disclaimer, placed at the end of practice/case pages */
 .page-disclaimer{
   margin-top:0;padding:22px 26px;border:1px dashed var(--line);border-radius:14px;
