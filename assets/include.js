@@ -1,7 +1,18 @@
 function loadPartial(url, mountId){
   return fetch(url)
     .then(function(r){ return r.text(); })
-    .then(function(html){ document.getElementById(mountId).innerHTML = html; })
+    .then(function(html){
+      var el = document.getElementById(mountId);
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(function(oldScript){
+        var newScript = document.createElement('script');
+        for (var i = 0; i < oldScript.attributes.length; i++){
+          newScript.setAttribute(oldScript.attributes[i].name, oldScript.attributes[i].value);
+        }
+        newScript.textContent = oldScript.textContent;
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+      });
+    })
     .catch(function(err){ console.error('Не удалось загрузить '+url, err); });
 }
 
