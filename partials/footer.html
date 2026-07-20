@@ -25,30 +25,32 @@
             </div>
           </div>
 
-          <form class="consult-form" onsubmit="return false;">
+          <form class="consult-form" id="consult-form" action="/contact.php" method="post">
+            <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
             <input type="email" name="email" placeholder="Email">
             <select name="practice">
               <option value="">С чем вам помочь?</option>
-              <option>Банкротство юрлиц</option>
-              <option>Банкротство физлиц</option>
-              <option>Корпоративные споры</option>
+              <option>Банкротство юридических лиц</option>
+              <option>Банкротство физических лиц</option>
+              <option>Корпоративное право и корпоративные конфликты</option>
               <option>Судебное представительство</option>
-              <option>Семейное право</option>
-              <option>Налоговые споры</option>
-              <option>Уголовно-правовая защита бизнеса</option>
+              <option>Семейное и наследственное право</option>
+              <option>Налоговое право</option>
+              <option>Уголовно-правовая защита бизнеса и граждан</option>
               <option>Исполнительное производство</option>
-              <option>IT и цифровое право</option>
-              <option>Административная защита</option>
+              <option>IT, цифровое право и персональные данные</option>
+              <option>Административное право</option>
               <option>Трудовое право</option>
               <option>Недвижимость</option>
             </select>
             <label class="chk-row">
-              <input type="checkbox" required>
+              <input type="checkbox" name="consent" required>
               <span>Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="/privacy/">Политикой конфиденциальности</a></span>
             </label>
             <button type="submit" class="btn btn-light">Получить консультацию!</button>
+            <p class="form-msg" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>

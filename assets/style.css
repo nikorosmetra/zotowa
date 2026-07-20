@@ -339,6 +339,11 @@
   .consult-form label.chk-row a{color:#c9d2f5;text-decoration:underline}
   .consult-form input[type=checkbox]{width:16px;height:16px;flex:0 0 auto;margin-top:2px}
   .consult-form .btn{margin-top:6px}
+  .consult-form .btn[disabled]{opacity:.6;cursor:default}
+  .consult-form .hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;padding:0;border:0}
+  .form-msg{font-size:14px;line-height:1.5;min-height:0}
+  .form-msg.ok{color:#8fe0b0}
+  .form-msg.err{color:#ffb3b3}
 
   /* Footer */
   .footer-contact-band{background:#fff;padding:96px 0}

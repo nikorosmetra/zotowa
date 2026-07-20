@@ -20,12 +20,7 @@
 .step-grid.cols-3{grid-template-columns:repeat(3,1fr)}
 .step-card{
   background:#fff;border:1px solid var(--line);border-radius:18px;
-  padding:26px 24px;display:flex;gap:16px;align-items:flex-start;
-}
-.step-card .num{
-  flex:0 0 auto;width:40px;height:40px;border-radius:11px;
-  background:var(--blue-700);color:#fff;font-weight:800;font-size:14px;
-  display:grid;place-items:center;
+  padding:26px 24px;
 }
 .step-card .body strong{display:block;font-size:16px;color:var(--ink);margin-bottom:6px;line-height:1.4}
 .step-card .body p{color:var(--muted);font-size:14.5px;line-height:1.6}
