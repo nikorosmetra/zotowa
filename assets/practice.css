@@ -187,6 +187,41 @@
   .photo-gallery img{height:220px}
 }
 
+/* Document template library (/documents/) */
+.doc-search{margin-top:32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.doc-search input{flex:1 1 320px;padding:14px 18px;border-radius:12px;border:1px solid var(--line);font-family:inherit;font-size:15px;color:var(--ink);background:#fff}
+.doc-search input:focus{outline:none;border-color:var(--blue-700)}
+.doc-search-count{font-size:13.5px;color:var(--muted);white-space:nowrap}
+
+.doc-group-head{margin-top:32px;margin-bottom:4px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gold)}
+.doc-group-head:first-child{margin-top:8px}
+
+.doc-tpl-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+.doc-tpl-body table td,.doc-tpl-body table th{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+.doc-tpl-body ol,.doc-tpl-body ul{margin:12px 0 12px 22px;color:var(--muted);font-size:15px;line-height:1.65}
+.doc-tpl-body ol li,.doc-tpl-body ul li{margin-bottom:6px}
+.doc-tpl-body strong{color:var(--ink)}
+.doc-tpl-body .doc-h{margin-top:22px;margin-bottom:8px;font-size:16px;font-weight:800;color:var(--ink)}
+.doc-tpl-body .doc-download{margin-top:20px}
+
+.doc-tpl-item.hidden{display:none}
+
+/* Document library hub (/documents/) */
+.doclib-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.doclib-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;transition:.15s transform,.15s box-shadow}
+.doclib-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,30,70,.08)}
+.doclib-card .count{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+.doclib-card h3{margin-top:10px;font-size:18px;font-weight:700;color:var(--ink);line-height:1.35}
+.doclib-card a.cover{position:absolute;inset:0}
+.doclib-card{position:relative}
+
+@media (max-width:960px){
+  .doclib-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .doclib-grid{grid-template-columns:1fr}
+}
+
 /* News accordion (/news/) */
 .news-list{margin-top:36px;display:flex;flex-direction:column;gap:14px}
 .news-item{border:1px solid var(--line);border-radius:14px;padding:6px 24px;background:#fff}

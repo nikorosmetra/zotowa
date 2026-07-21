@@ -33,16 +33,17 @@
   }
   .head{
     display:grid;
-    grid-template-columns:1fr auto 1fr;
+    grid-template-columns:1.25fr auto 1fr;
     align-items:center;
     gap:24px;
     min-height:84px;
   }
   nav.main{display:flex;align-items:center;gap:0;flex-wrap:wrap}
   nav.main a{
-    font-weight:600;font-size:16px;color:#26304d;
-    padding:8px 18px;border-radius:8px;transition:.15s color;
+    font-weight:600;font-size:15px;color:#26304d;
+    padding:8px 13px;border-radius:8px;transition:.15s color;
     position:relative;
+    white-space:nowrap;
   }
   nav.main a:not(:last-child)::after{
     content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);
