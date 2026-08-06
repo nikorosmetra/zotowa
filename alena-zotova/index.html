@@ -197,15 +197,6 @@
           <p>Основные темы: семейная медиация, структура переговоров, работа с конфликтом, подготовка исполнимых соглашений сторон. Внутренний сертификат не является документом государственного образца.</p>
         </div>
       </div>
-
-      <div class="photo-gallery">
-        <img src="/assets/alena/gallery-1.jpg" alt="Алёна Зотова" loading="lazy">
-        <img src="/assets/alena/gallery-2.jpg" alt="Алёна Зотова" loading="lazy">
-        <img src="/assets/alena/gallery-3.jpg" alt="Алёна Зотова" loading="lazy">
-        <img src="/assets/alena/gallery-4.jpg" alt="Алёна Зотова" loading="lazy">
-        <img src="/assets/alena/gallery-5.jpg" alt="Алёна Зотова у здания Арбитражного суда города Москвы" loading="lazy">
-        <img src="/assets/alena/gallery-6.jpg" alt="Алёна Зотова" loading="lazy">
-      </div>
     </div>
   </section>
 
@@ -456,22 +447,59 @@
   <script src="/assets/modal.js"></script>
   <script src="/assets/include.js"></script>
 
-  <div class="doc-lightbox" id="doc-lightbox"><img id="doc-lightbox-img" src="" alt=""></div>
+  <div class="doc-lightbox" id="doc-lightbox">
+    <button type="button" class="doc-lightbox-close" aria-label="Закрыть">&times;</button>
+    <button type="button" class="doc-lightbox-nav prev" aria-label="Предыдущий документ">&#8249;</button>
+    <img id="doc-lightbox-img" src="" alt="">
+    <button type="button" class="doc-lightbox-nav next" aria-label="Следующий документ">&#8250;</button>
+    <div class="doc-lightbox-counter"></div>
+  </div>
   <script>
   (function(){
     var lb = document.getElementById('doc-lightbox');
     var lbImg = document.getElementById('doc-lightbox-img');
-    document.querySelectorAll('.doc-item[data-img]').forEach(function(item){
-      item.addEventListener('click', function(){
-        lbImg.src = item.dataset.img;
-        lbImg.alt = item.querySelector('.name') ? item.querySelector('.name').textContent : '';
-        lb.classList.add('open');
-      });
+    var counter = lb.querySelector('.doc-lightbox-counter');
+    var items = Array.prototype.slice.call(document.querySelectorAll('.doc-item[data-img]'));
+    var current = 0;
+
+    function show(i){
+      current = (i + items.length) % items.length;
+      var item = items[current];
+      lbImg.src = item.dataset.img;
+      lbImg.alt = item.querySelector('.name') ? item.querySelector('.name').textContent : '';
+      counter.textContent = (current + 1) + ' / ' + items.length;
+    }
+    function open(i){
+      show(i);
+      lb.classList.add('open');
+    }
+    function close(){
+      lb.classList.remove('open');
+      lbImg.src = '';
+    }
+
+    items.forEach(function(item, i){
+      item.addEventListener('click', function(){ open(i); });
     });
-    lb.addEventListener('click', function(){ lb.classList.remove('open'); lbImg.src=''; });
+    lb.querySelector('.doc-lightbox-close').addEventListener('click', close);
+    lb.querySelector('.doc-lightbox-nav.prev').addEventListener('click', function(){ show(current - 1); });
+    lb.querySelector('.doc-lightbox-nav.next').addEventListener('click', function(){ show(current + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){ lb.classList.remove('open'); lbImg.src=''; }
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
     });
+
+    var touchStartX = null;
+    lb.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function(e){
+      if (touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      touchStartX = null;
+    }, { passive: true });
   })();
   </script>
 </body>
