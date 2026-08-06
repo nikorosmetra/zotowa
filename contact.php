@@ -32,28 +32,33 @@ if (!empty($_POST['website'] ?? '')) {
     exit;
 }
 
-$name    = trim((string)($_POST['name'] ?? ''));
-$phone   = trim((string)($_POST['phone'] ?? ''));
-$email   = trim((string)($_POST['email'] ?? ''));
-$practice = trim((string)($_POST['practice'] ?? ''));
-$consent = !empty($_POST['consent'] ?? '');
+$name     = trim((string)($_POST['name'] ?? ''));
+$phone    = trim((string)($_POST['phone'] ?? ''));
+$email    = trim((string)($_POST['email'] ?? ''));
+$formName = trim((string)($_POST['form_name'] ?? ''));
+$consent  = !empty($_POST['consent'] ?? '');
 
 // Защита от инъекции заголовков через переносы строк.
 $strip = static fn(string $v): string => str_replace(["\r", "\n"], ' ', $v);
 $name = $strip($name);
 $phone = $strip($phone);
 $email = $strip($email);
-$practice = $strip($practice);
+$formName = $strip($formName);
+if ($formName === '') {
+    $formName = 'Заявка с сайта';
+}
 
-if ($name === '' || $phone === '') {
+if ($name === '' || $phone === '' || $email === '') {
     fail('missing_fields');
 }
 if (!$consent) {
     fail('consent_required');
 }
-if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     fail('invalid_email');
 }
+
+$pageUrl = $strip((string)($_SERVER['HTTP_REFERER'] ?? ''));
 
 // Простой троттлинг по IP, чтобы не заспамили форму.
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
@@ -78,21 +83,21 @@ if ($smtpPass === false || $smtpPass === '') {
 $bodyLines = [
     'Новая заявка с сайта zotowa.ru',
     '',
+    'Форма: ' . $formName,
     'Имя: ' . $name,
     'Телефон: ' . $phone,
+    'Email: ' . $email,
 ];
-if ($email !== '') {
-    $bodyLines[] = 'Email: ' . $email;
+if ($pageUrl !== '') {
+    $bodyLines[] = 'Страница: ' . $pageUrl;
 }
-if ($practice !== '') {
-    $bodyLines[] = 'Практика: ' . $practice;
-}
+$bodyLines[] = 'Согласие на обработку персональных данных: получено';
 $bodyLines[] = '';
 $bodyLines[] = 'IP: ' . $ip;
 $bodyLines[] = 'Дата: ' . date('d.m.Y H:i:s');
 $body = implode("\r\n", $bodyLines);
 
-$subject = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $name) . '?=';
+$subject = '=?UTF-8?B?' . base64_encode('Новая заявка с zotowa.ru - ' . $formName) . '?=';
 
 $result = smtp_send(SMTP_HOST, SMTP_PORT, SMTP_USER, $smtpPass, MAIL_TO, $subject, $body, $email);
 
@@ -100,6 +105,10 @@ if ($result !== true) {
     error_log('contact.php smtp error: ' . $result);
     fail('send_failed', 502);
 }
+
+// TODO(MAX-дублирование): ТЗ п.18/42 просит опционально дублировать заявку в MAX.
+// Нужны bot-токен и ID канала/чата MAX от заказчика - на момент правки их нет.
+// Как только доступы будут получены, добавить сюда вызов MAX Bot API (аналогично smtp_send).
 
 echo json_encode(['ok' => true], JSON_UNESCAPED_UNICODE);
 

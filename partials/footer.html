@@ -21,33 +21,19 @@
             </div>
             <div class="row">
               <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 3 7v6c0 5 4 8.5 9 9 5-.5 9-4 9-9V7l-9-5Z"/></svg></span>
-              <div>Telegram: <a href="#" target="_blank" rel="noopener">телеграм канал</a> · WhatsApp: <a href="#" target="_blank" rel="noopener">написать</a></div>
+              <div>Telegram: <a href="https://t.me/zotowaipartnery" target="_blank" rel="noopener">телеграм канал</a> · WhatsApp: <a href="https://wa.me/79528857576" target="_blank" rel="noopener">написать</a> · MAX: <a href="https://max.ru/channel_zotowaipartnery" target="_blank" rel="noopener">канал</a></div>
             </div>
           </div>
 
           <form class="consult-form" id="consult-form" action="/contact.php" method="post">
             <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
-            <input type="email" name="email" placeholder="Email">
-            <select name="practice">
-              <option value="">С чем вам помочь?</option>
-              <option>Банкротство юридических лиц</option>
-              <option>Банкротство физических лиц</option>
-              <option>Корпоративное право и корпоративные конфликты</option>
-              <option>Судебное представительство</option>
-              <option>Семейное и наследственное право</option>
-              <option>Налоговое право</option>
-              <option>Уголовно-правовая защита бизнеса и граждан</option>
-              <option>Исполнительное производство</option>
-              <option>IT, цифровое право и персональные данные</option>
-              <option>Административное право</option>
-              <option>Трудовое право</option>
-              <option>Недвижимость</option>
-            </select>
+            <input type="hidden" name="form_name" value="Получить консультацию">
+            <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
             <label class="chk-row">
               <input type="checkbox" name="consent" required>
-              <span>Я даю согласие на обработку персональных данных и ознакомлен(а) с <a href="/privacy/">Политикой конфиденциальности</a></span>
+              <span>Даю <a href="/consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="/privacy/" target="_blank" rel="noopener">Политикой конфиденциальности</a></span>
             </label>
             <button type="submit" class="btn btn-light">Получить консультацию!</button>
             <p class="form-msg" role="status" aria-live="polite"></p>

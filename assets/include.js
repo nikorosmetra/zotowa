@@ -16,11 +16,22 @@ function loadPartial(url, mountId){
     .catch(function(err){ console.error('Не удалось загрузить '+url, err); });
 }
 
+function ymGoal(name){
+  if (typeof window.ym === 'function') window.ym(110878848, 'reachGoal', name);
+}
+
 function initConsultForm(){
   var form = document.getElementById('consult-form');
   if (!form) return;
   var msg = form.querySelector('.form-msg');
   var btn = form.querySelector('button[type=submit]');
+  var phoneInput = form.querySelector('input[name=phone]');
+  if (phoneInput && window.zpMaskPhone) window.zpMaskPhone(phoneInput);
+
+  var opened = false;
+  form.addEventListener('focusin', function(){
+    if (!opened) { opened = true; ymGoal('form_open'); }
+  });
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -36,9 +47,10 @@ function initConsultForm(){
       .then(function(r){ return r.json().catch(function(){ return { ok:false }; }); })
       .then(function(data){
         if (data.ok) {
-          msg.textContent = 'Спасибо! Мы свяжемся с вами в ближайшее время.';
+          msg.textContent = 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.';
           msg.className = 'form-msg ok';
           form.reset();
+          ymGoal('form_submit');
         } else {
           msg.textContent = 'Не удалось отправить. Позвоните нам или попробуйте ещё раз.';
           msg.className = 'form-msg err';
@@ -54,9 +66,21 @@ function initConsultForm(){
   });
 }
 
+function initMessengerTracking(){
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('[data-track]');
+    if (link) ymGoal(link.getAttribute('data-track'));
+  });
+}
+
+var siteFooterEl = document.getElementById('site-footer');
+var footerUrl = (siteFooterEl && siteFooterEl.getAttribute('data-footer') === 'compact')
+  ? '/partials/footer-compact.html'
+  : '/partials/footer.html';
+
 Promise.all([
   loadPartial('/partials/header.html', 'site-header'),
-  loadPartial('/partials/footer.html', 'site-footer')
+  loadPartial(footerUrl, 'site-footer')
 ]).then(function(){
   document.getElementById('burger').addEventListener('click',function(){
     document.body.classList.toggle('nav-open');
@@ -67,4 +91,5 @@ Promise.all([
     });
   });
   initConsultForm();
+  initMessengerTracking();
 });
