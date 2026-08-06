@@ -48,7 +48,7 @@
   list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
 }
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";font-size:22px;color:var(--gold);flex:0 0 auto;transition:.2s transform;line-height:1}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--gold-ink);flex:0 0 auto;transition:.2s transform;line-height:1}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{padding:0 0 20px;color:var(--muted);font-size:15px;line-height:1.65}
 
@@ -105,13 +105,13 @@
 /* Case detail: Дано / Задача */
 .case-facts{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .case-fact{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px}
-.case-fact h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:12px}
+.case-fact h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gold-ink);margin-bottom:12px}
 .case-fact p{color:var(--muted);font-size:15.5px;line-height:1.6}
 
 /* Case grid tag on preview cards */
 .case-card .tag{
   display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.5px;color:var(--gold);margin-bottom:10px;
+  letter-spacing:.5px;color:var(--gold-ink);margin-bottom:10px;
 }
 
 /* Legal documents (privacy / consent) */
@@ -158,7 +158,7 @@
 .timeline-item{position:relative;padding-bottom:36px}
 .timeline-item:last-child{padding-bottom:0}
 .timeline-item::before{content:"";position:absolute;left:-32px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 2px var(--line)}
-.timeline-item .year{font-size:13px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+.timeline-item .year{font-size:13px;font-weight:800;color:var(--gold-ink);text-transform:uppercase;letter-spacing:.5px}
 .timeline-item h4{margin-top:6px;font-size:17px;font-weight:700;color:var(--ink)}
 .timeline-item .org{margin-top:2px;font-size:14px;color:var(--muted);font-weight:600}
 .timeline-item p{margin-top:8px;color:var(--muted);font-size:14.5px;line-height:1.65}
@@ -203,7 +203,7 @@
 .doc-search input:focus{outline:none;border-color:var(--blue-700)}
 .doc-search-count{font-size:13.5px;color:var(--muted);white-space:nowrap}
 
-.doc-group-head{margin-top:32px;margin-bottom:4px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gold)}
+.doc-group-head{margin-top:32px;margin-bottom:4px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gold-ink)}
 .doc-group-head:first-child{margin-top:8px}
 
 .doc-tpl-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
@@ -220,7 +220,7 @@
 .doclib-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .doclib-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff;transition:.15s transform,.15s box-shadow}
 .doclib-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,30,70,.08)}
-.doclib-card .count{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+.doclib-card .count{font-size:13px;font-weight:700;color:var(--gold-ink);text-transform:uppercase;letter-spacing:.5px}
 .doclib-card h3{margin-top:10px;font-size:18px;font-weight:700;color:var(--ink);line-height:1.35}
 .doclib-card a.cover{position:absolute;inset:0}
 .doclib-card{position:relative}
@@ -240,11 +240,11 @@
   display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
 }
 .news-item summary::-webkit-details-marker{display:none}
-.news-item summary::after{content:"+";font-size:22px;color:var(--gold);flex:0 0 auto;transition:.2s transform;line-height:1}
+.news-item summary::after{content:"+";font-size:22px;color:var(--gold-ink);flex:0 0 auto;transition:.2s transform;line-height:1}
 .news-item[open] summary::after{transform:rotate(45deg)}
 .news-item .news-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
 .news-item .news-date{font-size:13px;color:var(--muted);font-weight:700;white-space:nowrap}
-.news-item .news-cat{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gold)}
+.news-item .news-cat{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--gold-ink)}
 .news-item .news-title{font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.4}
 .news-body{padding:0 0 24px}
 .news-body p{color:var(--muted);font-size:15px;line-height:1.65;margin-bottom:12px}
@@ -258,7 +258,7 @@
 .review-quote-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 30px}
 .review-quote-card h3{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:14px}
 .review-quote-card .who{font-weight:800;font-size:16px;color:var(--ink)}
-.review-quote-card .role{font-size:13px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:4px 0 18px}
+.review-quote-card .role{font-size:13px;color:var(--gold-ink);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:4px 0 18px}
 .review-quote-card p{color:var(--muted);font-size:15.5px;line-height:1.7;margin-bottom:12px}
 .review-quote-card .tags{margin-top:10px;font-size:13.5px;color:var(--blue-700);font-weight:600}
 

@@ -7,6 +7,7 @@
     --ink:#1b2340;
     --gold:#c9a24c;
     --gold-2:#e6c877;
+    --gold-ink:#8f6a1e;
     --line:#e7eaf1;
     --radius:26px;
     --tint:#f4f6fc;
@@ -23,6 +24,9 @@
   }
   a{text-decoration:none;color:inherit}
   img{display:block;max-width:100%}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+    outline:2px solid var(--blue-500);outline-offset:2px;border-radius:4px;
+  }
   .wrap{max-width:1440px;margin:0 auto;padding:0 40px}
 
   /* ---------- Header ---------- */
@@ -68,7 +72,7 @@
   .contacts{display:flex;align-items:center;gap:16px;justify-content:flex-end}
   .socials{display:flex;gap:10px}
   .socials a{
-    width:40px;height:40px;border-radius:50%;
+    width:44px;height:44px;border-radius:50%;
     display:grid;place-items:center;
     background:var(--blue-700);color:#fff;transition:.15s transform,.15s background;
   }
@@ -78,7 +82,7 @@
   .m-socials{margin-top:16px}
   .phone{font-weight:800;font-size:20px;color:#17204a;letter-spacing:.3px}
   .burger{
-    width:52px;height:36px;border:none;border-radius:10px;
+    width:52px;height:44px;border:none;border-radius:10px;
     background:var(--blue-700);color:#fff;cursor:pointer;
     display:grid;place-items:center;flex:0 0 auto;transition:.15s background;
   }
@@ -171,8 +175,9 @@
   .eyebrow{
     display:inline-flex;align-items:center;gap:10px;
     font-size:13.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-    color:var(--gold);margin-bottom:18px;
+    color:var(--gold-ink);margin-bottom:18px;
   }
+  .bg-navy .eyebrow{color:var(--gold)}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold-2);border-radius:2px}
   .section-title{font-size:clamp(28px,3vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.3px;max-width:760px}
   .muted{color:var(--muted);line-height:1.7;font-size:16.5px}
@@ -185,7 +190,8 @@
     max-width:640px;
   }
   .bg-navy .aphorism{background:rgba(255,255,255,.05)}
-  .aphorism .lat{font-style:italic;font-weight:600;font-size:17px;color:var(--gold);margin-bottom:6px}
+  .aphorism .lat{font-style:italic;font-weight:600;font-size:17px;color:var(--gold-ink);margin-bottom:6px}
+  .bg-navy .aphorism .lat{color:var(--gold)}
   .aphorism .tr{font-size:15px;color:var(--muted)}
   .bg-navy .aphorism .tr{color:#aab3d6}
 
@@ -214,7 +220,7 @@
     border-radius:18px;padding:28px 24px;transition:.15s transform,.15s box-shadow;
   }
   .practice-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(20,30,70,.08)}
-  .practice-card .n{font-size:15px;font-weight:800;color:var(--gold)}
+  .practice-card .n{font-size:15px;font-weight:800;color:var(--gold-ink)}
   .practice-card h3{font-size:18px;font-weight:700;margin:14px 0 18px;line-height:1.35;color:var(--ink)}
   .practice-card a{font-size:14px;font-weight:600;color:var(--blue-700)}
   .practice-card a:hover{color:var(--blue-500)}
@@ -239,7 +245,7 @@
     background:#fff;border-radius:18px;padding:30px 26px;border:1px solid var(--line);
   }
   .review-card .who{font-weight:800;font-size:17px;color:var(--ink)}
-  .review-card .role{font-size:13.5px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+  .review-card .role{font-size:13.5px;color:var(--gold-ink);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
   .review-card .tags{margin-top:16px;font-size:14.5px;color:var(--muted);line-height:1.6}
 
   /* CTA banner */
@@ -305,7 +311,7 @@
   /* News */
   .news-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .news-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff}
-  .news-card .date{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}
+  .news-card .date{font-size:13px;font-weight:700;color:var(--gold-ink);text-transform:uppercase;letter-spacing:.5px}
   .news-card h3{margin-top:12px;font-size:17px;font-weight:700;line-height:1.4;color:var(--ink)}
   .news-card p{margin-top:10px;font-size:14.5px;color:var(--muted);line-height:1.6}
   .news-card a{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--blue-700)}
@@ -363,7 +369,7 @@
     max-height:calc(100vh - 48px);overflow-y:auto;
   }
   .zp-modal-close{
-    position:absolute;top:18px;right:18px;width:36px;height:36px;border:none;border-radius:50%;
+    position:absolute;top:18px;right:18px;width:44px;height:44px;border:none;border-radius:50%;
     background:var(--tint);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;
     display:grid;place-items:center;transition:.15s background;
   }
