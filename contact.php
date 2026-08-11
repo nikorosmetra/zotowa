@@ -11,7 +11,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 const SMTP_HOST = 'smtp.yandex.ru';
 const SMTP_PORT = 465;
-const SMTP_USER = 'zotowa.a.s@yandex.ru';
+const SMTP_USER = 'dialogservis70@yandex.ru';
 const MAIL_TO   = 'zotowa.a.s@yandex.ru';
 const RATE_DIR  = __DIR__ . '/../contact-throttle'; // вне webroot
 const RATE_SECONDS = 30;
