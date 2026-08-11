@@ -145,7 +145,7 @@
 /* Leader profile (/alena-zotova/) */
 .leader-hero .grid{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:center}
 .leader-hero .portrait{border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(10,20,60,.3)}
-.leader-hero .portrait img{width:100%;display:block}
+.leader-hero .portrait img{width:100%;height:auto;display:block}
 .leader-hero .facts{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .leader-hero .facts span{background:rgba(255,255,255,.1);padding:10px 18px;border-radius:999px;color:#fff;font-size:13.5px;font-weight:600}
 
