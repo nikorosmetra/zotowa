@@ -73,7 +73,7 @@
           '<p class="form-msg" role="status" aria-live="polite"></p>' +
         '</form>' +
         '<a class="form-max-link" href="' + MAX_LINK + '" target="_blank" rel="noopener" data-track="messenger_max_click">' +
-          '<span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg></span>' +
+          '<span class="ic"><img src="/assets/icons/max.svg" alt="" width="24" height="24"></span>' +
           '<span>Написать в MAX</span>' +
         '</a>' +
       '</div>';
