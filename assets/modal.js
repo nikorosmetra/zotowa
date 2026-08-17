@@ -7,6 +7,7 @@
 (function () {
   var YM_ID = 110878848;
   var MAIL_TO = 'zotowa.a.s@yandex.ru';
+  var MAX_LINK = 'https://max.ru/u/f9LHodD0cOJFfVwK4IK3pn11IkGqHMcaDNZF--FreLo8wgsxTNxKT4zhWqY';
 
   function ymGoal(name) {
     if (typeof window.ym === 'function') {
@@ -71,6 +72,10 @@
           '<button type="submit" class="btn btn-dark">Отправить</button>' +
           '<p class="form-msg" role="status" aria-live="polite"></p>' +
         '</form>' +
+        '<a class="form-max-link" href="' + MAX_LINK + '" target="_blank" rel="noopener" data-track="messenger_max_click">' +
+          '<span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg></span>' +
+          '<span>Написать в MAX</span>' +
+        '</a>' +
       '</div>';
     document.body.appendChild(overlay);
 

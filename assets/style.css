@@ -399,6 +399,22 @@
     .zp-modal{padding:32px 22px 26px;border-radius:20px}
   }
 
+  /* "Написать в MAX" - альтернативная ссылка на всех формах захвата */
+  .form-max-link{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:14px;padding:13px 16px;border-radius:12px;
+    border:1px solid var(--line);font-size:14.5px;font-weight:700;color:var(--ink);
+    transition:.15s border-color,.15s background;
+  }
+  .form-max-link:hover{border-color:var(--blue-700);background:var(--tint)}
+  .form-max-link .ic{
+    flex:0 0 auto;width:24px;height:24px;border-radius:50%;
+    background:var(--blue-700);color:#fff;display:grid;place-items:center;
+  }
+  .form-max-link .ic svg{width:14px;height:14px;fill:#fff}
+  .consult-form .form-max-link{border-color:rgba(255,255,255,.16);color:#fff}
+  .consult-form .form-max-link:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.06)}
+
   /* Footer */
   .footer-contact-band{background:#fff;padding:96px 0}
   .footer-bottom-band{background:#0d1330;color:#c3cef0;padding:64px 0 28px}
