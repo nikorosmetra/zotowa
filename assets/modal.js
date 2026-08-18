@@ -1,12 +1,9 @@
 /*
  * Единая модальная форма заявки. Открывается по клику на любую кнопку
- * с data-modal-form. Отправка - через mailto: (открывает почтовый клиент
- * посетителя с готовым письмом на MAIL_TO), т.к. серверный SMTP до Яндекса
- * с хостинга сейчас не проходит на сетевом уровне.
+ * с data-modal-form; поля и отправка на /contact.php одинаковы для всех форм сайта.
  */
 (function () {
   var YM_ID = 110878848;
-  var MAIL_TO = 'zotowa.a.s@yandex.ru';
   var MAX_LINK = 'https://max.ru/u/f9LHodD0cOJFfVwK4IK3pn11IkGqHMcaDNZF--FreLo8wgsxTNxKT4zhWqY';
 
   function ymGoal(name) {
@@ -14,20 +11,6 @@
       window.ym(YM_ID, 'reachGoal', name);
     }
   }
-
-  window.zpBuildMailto = function (fields, formName) {
-    var subject = 'Заявка с сайта zotowa.ru - ' + formName;
-    var bodyLines = [
-      'Имя: ' + fields.name,
-      'Телефон: ' + fields.phone,
-      'Email: ' + fields.email,
-      'Страница: ' + window.location.href,
-      'Согласие на обработку персональных данных: получено'
-    ];
-    return 'mailto:' + MAIL_TO
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(bodyLines.join('\r\n'));
-  };
 
   window.zpMaskPhone = function (input) {
     input.addEventListener('input', function () {
@@ -108,20 +91,32 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      if (form.website.value) return; // honeypot: боты дальше не проходят
+      btn.disabled = true;
+      msgEl.textContent = 'Отправляем...';
+      msgEl.className = 'form-msg';
 
-      var mailtoUrl = window.zpBuildMailto({
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        email: form.email.value.trim()
-      }, formNameInput.value || 'Получить консультацию');
-
-      window.location.href = mailtoUrl;
-      msgEl.textContent = 'Открылся ваш почтовый клиент с готовым письмом - отправьте его, чтобы мы получили заявку. Если ничего не открылось, напишите нам напрямую на zotowa.a.s@yandex.ru.';
-      msgEl.className = 'form-msg ok';
-      ymGoal('form_submit');
-      form.reset();
+      fetch('/contact.php', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (data) {
+          if (data.ok) {
+            msgEl.textContent = 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.';
+            msgEl.className = 'form-msg ok';
+            form.reset();
+            ymGoal('form_submit');
+          } else {
+            msgEl.textContent = 'Не удалось отправить. Позвоните нам или попробуйте ещё раз.';
+            msgEl.className = 'form-msg err';
+          }
+        })
+        .catch(function () {
+          msgEl.textContent = 'Не удалось отправить. Позвоните нам или попробуйте ещё раз.';
+          msgEl.className = 'form-msg err';
+        })
+        .finally(function () { btn.disabled = false; });
     });
   }
 
