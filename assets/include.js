@@ -24,7 +24,6 @@ function initConsultForm(){
   var form = document.getElementById('consult-form');
   if (!form) return;
   var msg = form.querySelector('.form-msg');
-  var btn = form.querySelector('button[type=submit]');
   var phoneInput = form.querySelector('input[name=phone]');
   if (phoneInput && window.zpMaskPhone) window.zpMaskPhone(phoneInput);
 
@@ -35,34 +34,20 @@ function initConsultForm(){
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    btn.disabled = true;
-    msg.textContent = 'Отправляем...';
-    msg.className = 'form-msg';
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (form.website.value) return; // honeypot: боты дальше не проходят
 
-    fetch(form.getAttribute('action'), {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'X-Requested-With': 'XMLHttpRequest' }
-    })
-      .then(function(r){ return r.json().catch(function(){ return { ok:false }; }); })
-      .then(function(data){
-        if (data.ok) {
-          msg.textContent = 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.';
-          msg.className = 'form-msg ok';
-          form.reset();
-          ymGoal('form_submit');
-        } else {
-          msg.textContent = 'Не удалось отправить. Позвоните нам или попробуйте ещё раз.';
-          msg.className = 'form-msg err';
-        }
-      })
-      .catch(function(){
-        msg.textContent = 'Не удалось отправить. Позвоните нам или попробуйте ещё раз.';
-        msg.className = 'form-msg err';
-      })
-      .finally(function(){
-        btn.disabled = false;
-      });
+    var mailtoUrl = window.zpBuildMailto({
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim()
+    }, (form.form_name && form.form_name.value) || 'Получить консультацию');
+
+    window.location.href = mailtoUrl;
+    msg.textContent = 'Открылся ваш почтовый клиент с готовым письмом - отправьте его, чтобы мы получили заявку. Если ничего не открылось, напишите нам напрямую на zotowa.a.s@yandex.ru.';
+    msg.className = 'form-msg ok';
+    ymGoal('form_submit');
+    form.reset();
   });
 }
 
