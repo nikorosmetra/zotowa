@@ -12,7 +12,7 @@ header('Content-Type: application/json; charset=utf-8');
 const SMTP_HOST = 'smtp.yandex.ru';
 const SMTP_PORT = 465;
 const SMTP_USER = 'dialogservis70@yandex.ru';
-const MAIL_TO   = 'zotowa.a.s@yandex.ru';
+const MAIL_TO   = ['zotowa.a.s@yandex.ru', 'artem40in@yandex.ru'];
 const RATE_DIR  = __DIR__ . '/../contact-throttle'; // вне webroot
 const RATE_SECONDS = 30;
 
@@ -120,7 +120,7 @@ function smtp_send(
     int $port,
     string $user,
     string $pass,
-    string $to,
+    array $to,
     string $subject,
     string $body,
     string $replyTo
@@ -196,11 +196,13 @@ function smtp_send(
         return "mail_from_failed: {$resp}";
     }
 
-    $write("RCPT TO:<{$to}>");
-    $resp = $read();
-    if (!$expect($resp, '250')) {
-        fclose($socket);
-        return "rcpt_to_failed: {$resp}";
+    foreach ($to as $recipient) {
+        $write("RCPT TO:<{$recipient}>");
+        $resp = $read();
+        if (!$expect($resp, '250')) {
+            fclose($socket);
+            return "rcpt_to_failed ({$recipient}): {$resp}";
+        }
     }
 
     $write('DATA');
@@ -212,7 +214,7 @@ function smtp_send(
 
     $headers = [
         'From: Зотова и партнёры <' . $user . '>',
-        'To: <' . $to . '>',
+        'To: <' . implode('>, <', $to) . '>',
         'Subject: ' . $subject,
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
