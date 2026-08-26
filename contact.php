@@ -212,10 +212,14 @@ function smtp_send(
         return "data_start_failed: {$resp}";
     }
 
+    $fromDomain = substr((string)strrchr($user, '@'), 1) ?: 'yandex.ru';
+    $fromName = '=?UTF-8?B?' . base64_encode('Зотова и партнёры') . '?=';
     $headers = [
-        'From: Зотова и партнёры <' . $user . '>',
+        'From: ' . $fromName . ' <' . $user . '>',
         'To: <' . implode('>, <', $to) . '>',
         'Subject: ' . $subject,
+        'Date: ' . date('r'),
+        'Message-ID: <' . bin2hex(random_bytes(16)) . '@' . $fromDomain . '>',
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
         'Content-Transfer-Encoding: 8bit',
